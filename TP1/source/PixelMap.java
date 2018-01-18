@@ -115,29 +115,53 @@ public class PixelMap
 		width = w;
 		
 		// compl�ter
-		AbstractPixel[][] nouveau = new AbstractPixel[height][width];
+		
+		//AbstractPixel[][] nouveau = new AbstractPixel[height][width];
 		
 
-		for(int row=0; row<height; row++)
-		{
-			for(int col=0; col<width; col++)
-			{
+
 				if(type == imageType.BW){
-					nouveau[row][col] = new BWPixel();
+					BWPixel[][] nouveau = new BWPixel[height][width];
+					for(int row=0; row<height; row++)
+					{
+						for(int col=0; col<width; col++)
+						{
+							nouveau[row][col] = new BWPixel();
+						}
+					}
 				}
 				else if(type == imageType.Gray){
-					nouveau[row][col] = new GrayPixel();
+					GrayPixel[][] nouveau = new GrayPixel[height][width];
+					for(int row=0; row<height; row++)
+					{
+						for(int col=0; col<width; col++)
+						{
+							nouveau[row][col] = new GrayPixel();
+						}
+					}
 				}
 				else if(type == imageType.Color){
-					nouveau[row][col] = new ColorPixel();
+					ColorPixel[][] nouveau = new ColorPixel[height][width];
+					for(int row=0; row<height; row++)
+					{
+						for(int col=0; col<width; col++)
+						{
+							nouveau[row][col] = new ColorPixel();
+						}
+					}
 				}
 				else if(type == imageType.Transparent){
-					nouveau[row][col] = new TransparentPixel();
+					TransparentPixel[][] nouveau = new TransparentPixel[height][width];
+					for(int row=0; row<height; row++)
+					{
+						for(int col=0; col<width; col++)
+						{
+							nouveau[row][col] = new TransparentPixel();
+						}
+					}
 
 				}
-			}
-		}
-		
+				
 		this.imageData = nouveau;
 
 		
