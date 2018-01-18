@@ -23,7 +23,7 @@ public class GrayPixel  extends AbstractPixel
 	GrayPixel(int pixel)
 	{
 		// compléter
-		
+		this.pixel = pixel;
 	}
 	
 	/**
