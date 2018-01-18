@@ -83,9 +83,9 @@ public class GrayPixel  extends AbstractPixel
 	public TransparentPixel toTransparentPixel()
 	{
 		// compléter
-		int[] rgba = new int  [4];
+		int[] rgba = new int[4];
 		rgba[0]=rgba[1]=rgba[2]=this.pixel;
-		rgba[4]=255;
+		rgba[3]=255;
 		TransparentPixel cp = new TransparentPixel(rgba);
 		return cp;
 	}
