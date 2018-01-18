@@ -114,17 +114,42 @@ public class PixelMap
 		height = h; 
 		width = w;
 		
-		// compléter
+		// complï¿½ter
+		AbstractPixel[][] nouveau = new AbstractPixel[height][width];
+		
+
+		for(int row=0; row<height; row++)
+		{
+			for(int col=0; col<width; col++)
+			{
+				if(type == imageType.BW){
+					nouveau[row][col] = new BWPixel();
+				}
+				else if(type == imageType.Gray){
+					nouveau[row][col] = new GrayPixel();
+				}
+				else if(type == imageType.Color){
+					nouveau[row][col] = new ColorPixel();
+				}
+				else if(type == imageType.Transparent){
+					nouveau[row][col] = new TransparentPixel();
+
+				}
+			}
+		}
+		
+		this.imageData = nouveau;
+
 		
 	}
 	
 	/**
-	 * Libérer la mémoire
+	 * Libï¿½rer la mï¿½moire
 	 */
 	public void clearData()
 	{
-		// compléter
-		
+		// complï¿½ter
+		this.imageData = null;
 	}
 	
 	/**
