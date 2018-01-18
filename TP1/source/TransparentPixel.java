@@ -81,7 +81,7 @@ public class TransparentPixel extends AbstractPixel
 		// compléter
 		int[] rgbaNeg = new int[4];
 		for (int i = 0; i<4; i++) {
-		rgbaNeg[i]= 255 - this.rgba[i]
+		rgbaNeg[i]= 255 - this.rgba[i];
 		}
 		return new TransparentPixel(rgbaNeg);
 	}
