@@ -75,7 +75,6 @@ public class BWPixel extends AbstractPixel
 	
 	public TransparentPixel toTransparentPixel()
 	{
-		//salut
 		int pixelVal = (pixel ? 255 : 0);
 		int[] rgba = new int[4];
 		rgba[0] = rgba[1] = rgba[2] = pixelVal;
