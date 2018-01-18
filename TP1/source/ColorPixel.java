@@ -74,6 +74,7 @@ public class ColorPixel extends AbstractPixel
 		rgba[3] = 255;
 		
 		TransparentPixel tp = new TransparentPixel(rgba);
+		return tp;
 	}
 	
 	/**
