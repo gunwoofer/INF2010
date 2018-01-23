@@ -12,9 +12,9 @@ public class Main
 	 */
 	public static void main(String[] args) 
 	{
-		/**
-		 * Exercice 1
-		 */
+		/*
+		  Exercice 1
+		 
 		
 		
 		
@@ -39,9 +39,9 @@ public class Main
 		wName = "Edsger Dijkstra (Transparent)";
 		new DisplayImageWindow(wName, pmt, 200, 200);
 		
-		/**
-		 * Exercice 2
 		
+		 Exercice 2
+		*/
 		
 		PixelMapPlus pmp = new PixelMapPlus("./ed.ppm");
 		
@@ -65,12 +65,12 @@ public class Main
 		npmp.negate();
 		
 		pmp.inset(hpmp, 0, 0);
-		pmp.inset(gpmp, pmp.getHeight()/2, 0);
-		pmp.inset(bwpmp, 0, pmp.getWidth()/2);
+		pmp.inset(bwpmp, pmp.getHeight()/2, 0);
+		pmp.inset(gpmp, 0, pmp.getWidth()/2);
 		pmp.inset(npmp, pmp.getHeight()/2, pmp.getWidth()/2);
 		
-		wName = "Edsger Dijkstra";
+		String wName = "Edsger Dijkstra";
 		new DisplayImageWindow(wName, pmp);
-		*/
+		
 	}
 }
