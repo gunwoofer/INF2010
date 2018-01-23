@@ -117,7 +117,6 @@ public class PixelMap
 		// compl�ter
 		AbstractPixel[][] nouveau = new AbstractPixel[height][width];
 		
-
 		for(int row=0; row<height; row++)
 		{
 			for(int col=0; col<width; col++)
@@ -133,13 +132,11 @@ public class PixelMap
 				}
 				else if(type == imageType.Transparent){
 					nouveau[row][col] = new TransparentPixel();
-
 				}
 			}
 		}
 		
-		this.imageData = nouveau;
-
+		imageData = nouveau;
 		
 	}
 	
@@ -149,7 +146,7 @@ public class PixelMap
 	public void clearData()
 	{
 		// compl�ter
-		this.imageData = null;
+		imageData = null;
 	}
 	
 	/**
@@ -332,7 +329,7 @@ public class PixelMap
 								imageData[row][col] = new BWPixel( rgb[0] == 1 );
 							else if(imtype == ImageType.Gray)
 								imageData[row][col] = new GrayPixel( rgb[0] );
-							else //if(imtype == ImageType.Color)
+							else if(imtype == ImageType.Color)
 								imageData[row][col] = new ColorPixel( rgb );
 							
 							curColor = 0;

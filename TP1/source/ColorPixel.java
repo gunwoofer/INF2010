@@ -26,7 +26,10 @@ public class ColorPixel extends AbstractPixel
 	ColorPixel(int[] rgb)
 	{
 		// compléter
-		this.rgb = rgb;
+		this.rgb = new int[3];
+		this.rgb[0] = rgb[0];
+		this.rgb[1] = rgb[1];
+		this.rgb[2] = rgb[2];
 		
 	}
 	
