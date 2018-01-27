@@ -137,6 +137,7 @@ public class FormValidator
 			charKey[i]=chr;
 			}
 		String stringKey = new String(charKey);
+		System.out.println(stringKey);
 		return stringKey;
 	}
 	
@@ -155,6 +156,7 @@ public class FormValidator
 		// compléter
 		for (int i=0;i<nb;i++){
 			charTransform[i]=generator.nextInt(10); 
+			System.out.println(charTransform[i]);
 			}
 		return charTransform;
 			

@@ -123,7 +123,29 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void rotate(int x, int y, double angleRadian)
 	{
 		// compl�ter
-		
+
+		AbstractPixel[][] imageRot = new AbstractPixel[this.width][this.height];
+
+		double cos_angle = Math.cos(angleRadian);
+		double sin_angle = Math.sin(angleRadian);
+
+		for(int i = 0; i < this.width; i++){
+			for(int j = 0; j < this.height; j++){
+				imageRot[i][j] = new ColorPixel();   //blanc
+			}
+		}
+
+		for(int i = 0; i < this.width; i++){
+			for(int j = 0; j < this.height; j++){
+				int i2 = (int) (cos_angle * i - sin_angle * j);
+				int j2 = (int) (sin_angle * i + cos_angle * j);
+
+				if (i2 < this.height && i2 >= 0 && j2 < this.width && j2 >=0) {
+					imageRot[i2][j2] = this.imageData[i][j];
+				}
+			}
+		}
+		this.imageData = imageRot;
 	}
 	
 	/**
