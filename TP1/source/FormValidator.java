@@ -35,7 +35,7 @@ public class FormValidator
 		for(int i=0; i<codeLength; i++)
 		{
 			String letter = code.substring(i, i+1);
-			String fileName = "./alphabet/" + letter + ".ppm";
+			String fileName = "./source/alphabet/" + letter + ".ppm";
 			pm[ i ] = new PixelMapPlus( fileName ); 
 			
 			switch( transform[i] )
@@ -130,8 +130,14 @@ public class FormValidator
 		
 		Random generator = new Random( System.nanoTime() );
 		
-		// compléter
+		// complÃ©ter
 		
+		for (int i=0; i < length;i++){
+			char chr = (char)(generator.nextInt(26)+'A');
+			charKey[i]=chr;
+			}
+		String stringKey = new String(charKey);
+		return stringKey;
 	}
 	
 	/**
@@ -146,8 +152,12 @@ public class FormValidator
 		
 		Random generator = new Random( System.nanoTime() );
 		
-		// compléter
-		
+		// complÃ©ter
+		for (int i=0;i<nb;i++){
+			charTransform[i]=generator.nextInt(10); 
+			}
+		return charTransform;
+			
 	}
 
 }
