@@ -70,6 +70,7 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void convertToBWImage()
 	{
 		// compl�ter
+		
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				this.imageData[i][j] = this.imageData[i][j].toBWPixel();
@@ -123,6 +124,7 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void rotate(int x, int y, double angleRadian)
 	{
 		// compl�ter
+		
 
 		AbstractPixel[][] imageRot = new AbstractPixel[this.width][this.height];
 
