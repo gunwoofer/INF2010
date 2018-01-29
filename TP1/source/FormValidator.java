@@ -61,21 +61,21 @@ public class FormValidator
 					int oldh = pm[i].height, oldw = pm[i].width; 
 					pm[i].resize(pm[i].width/2, pm[i].height/2);
 					pm[i].crop(oldh, oldw);
-					//pm[i].translate(oldw/4, oldh/4);
+					pm[i].translate(oldw/4, oldh/4);
 					pm[i].rotate( pm[i].width/2, 0, RADIAN_20DEGREE);
 					break;
 				case 7:
 					oldh = pm[i].height; oldw = pm[i].width; 
 					pm[i].resize(pm[i].width/2, pm[i].height/2);
 					pm[i].crop(oldh, oldw);
-					//pm[i].translate(oldw/4, oldh/4);
+					pm[i].translate(oldw/4, oldh/4);
 					pm[i].rotate( pm[i].width/2, 0, RADIAN_15DEGREE);
 					break;
 				case 8:
 					oldh = pm[i].height; oldw = pm[i].width; 
 					pm[i].resize(pm[i].width/2, pm[i].height/2);
 					pm[i].crop(oldh, oldw);
-					//pm[i].translate(oldw/4, oldh/4);
+					pm[i].translate(oldw/4, oldh/4);
 					pm[i].rotate( 0, pm[i].height/4, RADIAN_10DEGREE);
 					pm[i].negate();
 					break;
@@ -83,7 +83,7 @@ public class FormValidator
 					oldh = pm[i].height; oldw = pm[i].width; 
 					pm[i].resize(pm[i].width/2, pm[i].height/2);
 					pm[i].crop(oldh, oldw);
-					//pm[i].translate(oldw/4, oldh/4);
+					pm[i].translate(oldw/4, oldh/4);
 					pm[i].rotate( pm[i].width/2, pm[i].height/4, -RADIAN_10DEGREE);
 					pm[i].negate();
 					break;

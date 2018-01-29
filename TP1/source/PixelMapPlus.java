@@ -222,13 +222,13 @@ public class PixelMapPlus extends PixelMap implements ImageOperations
 	public void translate(int rowOffset, int colOffset)
 	{
 
-		AbstractPixel[][] imageTranslate = new AbstractPixel[height][width];
+		AbstractPixel[][] imageTranslate = new AbstractPixel[this.height][this.width];
 
 		for(int i = 0; i < this.height; i++){
 			for(int j = 0; j < this.width; j++){
 				if(i + rowOffset < this.height && i + rowOffset >= 0 
 				&& j + colOffset < this.width && j + colOffset >= 0){
-					imageTranslate[i + rowOffset][j + colOffset] = this.imageData[i][j];
+					imageTranslate[i][j] = this.imageData[i + rowOffset][j + colOffset];
 				}else{
 					imageTranslate[i][j] = new ColorPixel(); //blanc
 				}
