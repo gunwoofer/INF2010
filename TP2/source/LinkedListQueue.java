@@ -47,26 +47,48 @@ public class LinkedListQueue<AnyType> implements Queue<AnyType>
 	
 	//Retourne l'element en tete de file
 	//Retourne null si la file est vide
-	//complexité asymptotique: O(1)
-	public AnyType peek()
+	//complexitï¿½ asymptotique: O(1)
+	public AnyType peek() 
 	{
-		//A completer
-		
+		if(empty())
+			return null;
+		else
+			return last.getNext().getData();
 	}
 	
 	//Retire l'element en tete de file
-	//complexité asymptotique: O(1)
+	//complexitï¿½ asymptotique: O(1)
 	public void pop() throws EmptyQueueException
 	{
-		//A completer
-		
+		if(size == 1) // 1 element dans la file
+		{
+			last = null; 
+			size = 0;
+		}
+		else if(empty()) 		   // file vide
+			throw new EmptyQueueException();
+		else 					   // cas normal
+		{
+			last.setNext(last.getNext().getNext());
+			size--;
+		}
 	}
 	
 	//Ajoute un element a la fin de la file
-	//complexité asymptotique: O(1)
+	//complexitï¿½ asymptotique: O(1)
 	public void push(AnyType item)
-	{		
-		//A completer
-		
+	{	if(empty())
+		{
+			Node node = new Node(item, null);
+			node.setNext(node);
+			last = node;
+		}
+		else
+		{
+			Node node = new Node(item, last.getNext()); // on cree un nouveau noeud pointant sur le dernier element de la file
+			last.setNext(node); // on change le pointeur de l'ancien dernier element de la file
+			last = node; // on alloue le pointeur last sur le nouveau dernier element de la file
+		}
+		size++;
 	}  
 }
