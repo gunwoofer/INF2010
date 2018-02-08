@@ -43,12 +43,27 @@ public class SortStackMain
     
 	private static int size(Stack<Integer> stack) {
 		//A completer
-	
+		if(stack.empty()) { return 0; }
+		
+		int size = 0;
+		Stack<Integer> stackTemporaire = new Stack<Integer>();
+		
+		while(!stack.empty()) {
+			stackTemporaire.push(stack.pop());
+			size++;
+		}
+		
+		while(!stackTemporaire.empty()) {
+			stack.push(stackTemporaire.pop());	//On oublie pas de le remplir de nouveau
+		}
+		
+		return size;
     }
     
 	static Stack<Integer> sortStack(Stack<Integer> stack)
 	{
 		//A completer
+		return stack;
 		
 	}
 }
