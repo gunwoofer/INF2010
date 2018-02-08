@@ -5,7 +5,7 @@ import java.util.Stack;
 public class SortStackMain 
 {
 	static final int COUNT = 30;
-	static final int MAX_VALUE = 1000;
+	static final int MAX_element = 1000;
 	
 	public static void main(String[] args) 
 	{
@@ -15,7 +15,7 @@ public class SortStackMain
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		for(int i = 0; i < COUNT; i++)
-			stack.push(generator.nextInt(MAX_VALUE));
+			stack.push(generator.nextInt(MAX_element));
 		
 		stack = sortStack(stack);
 		
@@ -63,7 +63,36 @@ public class SortStackMain
 	static Stack<Integer> sortStack(Stack<Integer> stack)
 	{
 		//A completer
-		return stack;
+		int pivot, element;
+		Stack<Integer> stackTemporaire  = new Stack<Integer>();
 		
+		for(int size = 1; size < SortStackMain.size(stack); size++) {
+			size = 1;
+			pivot = stack.pop();
+			
+			while(!stack.empty()){
+				element = stack.pop();
+				if(element < pivot)
+					stackTemporaire.push(element);
+				else{
+					stackTemporaire.push(pivot);
+					pivot = element;
+				}
+			}
+			
+			while(!stackTemporaire.empty()){
+				element = stackTemporaire.pop();
+				if(element > pivot)
+					stack.push(element);
+				else{
+					stack.push(pivot);
+					pivot = element;
+					size++;
+				}
+			}
+		
+			stack.push(pivot);
+		}
+		return stack;
 	}
 }
