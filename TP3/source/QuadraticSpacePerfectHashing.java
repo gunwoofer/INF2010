@@ -60,7 +60,7 @@ public class QuadraticSpacePerfectHashing<AnyType>
          a = b = 0;
          
          // A completer		
-         int key = getKey(array.get(0));
+         int key = getKey(array.get(0), array);
          items[key] = array.get(0);
          return;
       }
@@ -76,7 +76,7 @@ public class QuadraticSpacePerfectHashing<AnyType>
          b = generator.nextInt(p);
          
          for (int i = 0; i < array.size(); i++) {
-        	 int key = getKey(array.get(i));
+        	 int key = getKey(array.get(i), array);
         	 items[key] = array.get(i);
          }
          
@@ -84,9 +84,9 @@ public class QuadraticSpacePerfectHashing<AnyType>
       while( collisionExists( array ) ); //Si collision avec ces valeurs de a et b on refait avec d autres valeurs
    }
    
-   private int getKey(AnyType x) {
+   private int getKey(AnyType x, ArrayList<AnyType> array) {
 	   // ((a·x.hashCode() + b) mod p) mod m
-	   return ((a * x.hashCode() + b) % p ) % Size();
+	   return ((a * x.hashCode() + b) % p ) % (array.size() * array.size());
    }
    
    @SuppressWarnings("unchecked")
@@ -95,9 +95,9 @@ public class QuadraticSpacePerfectHashing<AnyType>
       // A completer
 	  int key1, key2;
       for (int i = 0; i < array.size(); i++) {
-    	  key1 = getKey(array.get(i));
+    	  key1 = getKey(array.get(i), array);
     	  for (int j = i + 1; j < array.size(); j++) {
-    		  key2 = getKey(array.get(j));
+    		  key2 = getKey(array.get(j), array);
     		  if(key1 == key2) {
     			  return true;
     		  }

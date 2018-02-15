@@ -38,12 +38,19 @@ public class LinearSpacePerfectHashing<AnyType>
          a = b = 0;
          
          // A completer
+         data = (QuadraticSpacePerfectHashing<AnyType>[]) new Object[1];
+         data[0] = new QuadraticSpacePerfectHashing<AnyType>(array);
          return;
       }
-      
       // A completer
+      
+      
    }
    
+   
+   private int getKey(AnyType x) {
+	   
+   }
    public int Size()
    {
       if( data == null ) return 0;
