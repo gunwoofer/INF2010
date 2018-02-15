@@ -59,25 +59,50 @@ public class QuadraticSpacePerfectHashing<AnyType>
       {
          a = b = 0;
          
-         // A completer			
+         // A completer		
+         int key = getKey(array.get(0));
+         items[key] = array.get(0);
          return;
       }
       
       do
       {
+    	  
          items = null;
-         
+         items = (AnyType[]) new Object[array.size()*array.size()];
          // A completer
          
+         a = generator.nextInt(p) + 1;
+         b = generator.nextInt(p);
+         
+         for (int i = 0; i < array.size(); i++) {
+        	 int key = getKey(array.get(i));
+        	 items[key] = array.get(i);
+         }
+         
       }
-      while( collisionExists( array ) );
+      while( collisionExists( array ) ); //Si collision avec ces valeurs de a et b on refait avec d autres valeurs
+   }
+   
+   private int getKey(AnyType x) {
+	   // ((a·x.hashCode() + b) mod p) mod m
+	   return ((a * x.hashCode() + b) % p ) % Size();
    }
    
    @SuppressWarnings("unchecked")
    private boolean collisionExists(ArrayList<AnyType> array)
    {
       // A completer
-      
+	  int key1, key2;
+      for (int i = 0; i < array.size(); i++) {
+    	  key1 = getKey(array.get(i));
+    	  for (int j = i + 1; j < array.size(); j++) {
+    		  key2 = getKey(array.get(j));
+    		  if(key1 == key2) {
+    			  return true;
+    		  }
+    	  }
+      }
       return false;
    }
 }
