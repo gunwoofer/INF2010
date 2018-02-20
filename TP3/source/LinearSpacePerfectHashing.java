@@ -42,15 +42,41 @@ public class LinearSpacePerfectHashing<AnyType>
          data[0] = new QuadraticSpacePerfectHashing<AnyType>(array);
          return;
       }
+      
       // A completer
       
+      this.data = new QuadraticSpacePerfectHashing[array.size()];
+      
+      //Tableau qui contient pour chaque index tous les elements qui ont la meme position
+      ArrayList<ArrayList<AnyType>> tableauTemp = new ArrayList<ArrayList<AnyType>>(array.size());
+      for(int i = 0; i < array.size(); i++) {
+    	  tableauTemp.add(new ArrayList<AnyType>());	//Instancie chaque sous tableau
+      }
+      
+      a = generator.nextInt(p) + 1;
+      b = generator.nextInt(p);
+      
+      for (int i = 0; i < array.size(); i++) {
+     	 int key = getKey(array.get(i), array);
+     	 tableauTemp.get(key).add(array.get(i));
+      }
+      
+      //Pour chaque sous tableau on utilise le hash quadratic parfait
+      for (int i = 0; i < tableauTemp.size(); i++) {
+    	  this.data[i] = new QuadraticSpacePerfectHashing<AnyType>();
+    	  //System.out.println(i);
+    	  //System.out.println(this.data[i]);
+    	  //System.out.println(tableauTemp.get(i));
+      	 this.data[i].SetArray(tableauTemp.get(i));
+       }
       
    }
    
    
-   private int getKey(AnyType x) {
-	   
+   private int getKey(AnyType x, ArrayList<AnyType> array) {
+	   return ((a * x.hashCode() + b) % p ) % array.size();
    }
+   
    public int Size()
    {
       if( data == null ) return 0;

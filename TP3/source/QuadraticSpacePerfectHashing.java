@@ -60,7 +60,8 @@ public class QuadraticSpacePerfectHashing<AnyType>
          a = b = 0;
          
          // A completer		
-         int key = getKey(array.get(0), array);
+         items = (AnyType[]) new Object[1];
+         int key = getKey(array.get(0), array);  //Le key sera egale a 0 mais je le met pour insister sur la methode
          items[key] = array.get(0);
          return;
       }

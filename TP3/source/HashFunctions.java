@@ -19,7 +19,7 @@ public class HashFunctions
       
       /**
        * Exercice 1
-       */
+       
       // On cree un QuadraticSpacePerfectHashing et insere les donnees
       System.out.println( "QuadraticSpacePerfectHashing:");
       System.out.println();
@@ -42,7 +42,7 @@ public class HashFunctions
       
       /**
        * Exercice 2
-       
+       */
       // On cree un LinearSpacePerfectHashing et insere les memes donnees
       System.out.println( "LinearSpacePerfectHashing:");
       System.out.println();
