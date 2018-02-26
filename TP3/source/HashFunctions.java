@@ -70,7 +70,7 @@ public class HashFunctions
       pfhash = new LinearSpacePerfectHashing<Integer>();
       System.out.println("Tests aleatoires");
       
-      for(int i=0, nbElements = 10; i<40; ++i, nbElements += 10)
+      for(int i=0, nbElements = 10; i<350; ++i, nbElements += 100)
       {
          pfhash.SetArray( randomIntegers( nbElements ) );			
          System.out.println( nbElements + "\t" + pfhash.Size() );
