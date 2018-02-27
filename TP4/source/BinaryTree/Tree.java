@@ -9,9 +9,29 @@ public class Tree<AnyType> {
 		root = insert(root, newElem);
 	}
 
+	@SuppressWarnings("unchecked")
 	private Node<AnyType> insert (Node<AnyType> root, Node<AnyType> newelement) {
 		// A compléter
-		
+		if (((Comparable) newelement.val).compareTo(root.val) > 0) {
+			if (root.right == null) {
+				root.right = new Node<AnyType>(newelement.val);
+				return root.right;
+			} else {
+				return insert(root.right, newelement);
+			}
+		}
+		if (((Comparable) newelement.val).compareTo(root.val) < 0) {
+			if (root.left == null) {
+				root.left = new Node<AnyType>(newelement.val);
+				return root.left;
+			} else {
+				return insert(root.left, newelement);
+			}
+		}
+		else if (((Comparable) newelement.val).compareTo(root.val) == 0) {
+			System.out.println("Ne peut pas inserer un doublon !");
+		}
+		return null;  //N a pas trop de sens mais il faut un retour je laisse ca pour l instant Louis
 	}
 
 	public int getHauteur () {
