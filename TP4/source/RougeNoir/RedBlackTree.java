@@ -289,16 +289,25 @@ public class RedBlackTree<T extends Comparable<? super T> >
 		RBNode<T> grandParent()
 		{
 			// À COMPLÉTER
+			return this.parent.parent;
 		}
 
 		RBNode<T> uncle()
 		{
 			// À COMPLÉTER
+			return parent.sibling();
 		}
 
 		RBNode<T> sibling()
 		{
 			// À COMPLÉTER
+			if (this.parent.leftChild != this && this.parent.leftChild != null) {
+				return this.parent.leftChild;
+			}
+			else if (this.parent.rightChild != this && this.parent.rightChild != null) {
+				return this.parent.leftChild;
+			}
+			return null;
 		}
 
 		public String toString()
