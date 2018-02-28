@@ -2,11 +2,18 @@ package BinaryTree;
 
 public class Tree<AnyType> {
 
+	private String results = "";	// Je mets results en attribut sinon il est reinitialiser a chaque appel recursif
 	private Node<AnyType> root = null; // Racine de l'arbre
 
 	public void insert (AnyType elem) {
-		Node<AnyType> newElem = new Node<AnyType>(elem);
-		root = insert(root, newElem);
+		if (root == null) {
+			root = new Node<AnyType>(elem);
+		}
+		else {
+			Node<AnyType> node = new Node<AnyType>(elem);
+			node = insert(root, node);
+		}
+		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -40,7 +47,10 @@ public class Tree<AnyType> {
 
 	private int getHauteur(Node<AnyType> tree) {
 		// A compléter 
-
+		if (tree == null) {
+			return 0;
+		}
+		return 1 + Math.max(getHauteur(tree.left), getHauteur(tree.right));
 	}
 
 	public String printTreePreOrder() {
@@ -49,9 +59,18 @@ public class Tree<AnyType> {
 	}
 
 	private String printPreOrder(Node root) {
-		String results = "";
-
 		// A compléter
+		if (root != null) {
+			results += root.val + ", ";
+		}
+		if (root.left != null) {
+			printPreOrder(root.left);
+		}
+		if (root.right != null) {
+			printPreOrder(root.right);
+		}
+		
+		return results;
 		
 	}
 
