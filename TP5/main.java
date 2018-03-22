@@ -22,21 +22,31 @@ public class main {
 		try {
 
 			a = a.fusion(b); // 3-4
+			a.print();
 			// Decommenter pour tester l'emission d'exception
 			// a = a.fusion(c); // 3-4-5 -> EXCEPTION (ordres differents)
 			c = c.fusion(f); // 5-9
+			c.print();
 			c = c.fusion(a); // 3-4-5-9
+			c.print();
 
 			g = g.fusion(h); // 12-13
+			g.print();
 			d = d.fusion(e); // 7-8
+			d.print();
 			d = d.fusion(g); // 7-8-12-13
+			d.print();
 			c = c.fusion(d); // 3-4-5-9-7-8-12-13
+			c.print();
 
+			
+			
 		} catch (DifferentOrderTrees exception) {
 			System.out.println(exception);
 			return;
 		}
 
+		/*
 		// TEST DE PRINT
 
 		c.print();
@@ -109,6 +119,7 @@ public class main {
 
 		System.out.println("Resultat :");
 		monceau.print();
+		*/
 
 	}
 }

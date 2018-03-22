@@ -57,6 +57,25 @@ public class Node {
 
 	public Node fusion(Node autre) throws DifferentOrderTrees {
 		// A completer
+		if(this.ordre != autre.ordre) {
+			throw new DifferentOrderTrees();
+		}
+		else {
+			if (this.parent == null && autre.parent == null) {
+				if(this.valeur > autre.valeur) {
+					this.addEnfant(autre);
+					autre.parent = this;
+					this.ordre++;
+					return this;
+				}
+				else if(autre.valeur > this.valeur) {
+					autre.addEnfant(this);
+					this.parent = autre;
+					autre.ordre++;
+					return autre;
+				}
+			}
+		}
 		return null;
 	}
 
