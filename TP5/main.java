@@ -46,7 +46,7 @@ public class main {
 			return;
 		}
 
-		/*
+		
 		// TEST DE PRINT
 
 		c.print();
@@ -71,6 +71,7 @@ public class main {
 
 		System.out.println();
 
+		/*
 		// TEST DE DELETE
 		System.out.println("\nTEST DE NODE.DELETE()\n");
 

@@ -81,6 +81,14 @@ public class Node {
 
 	private void moveUp() {
 		// A completer
+		if (this.parent == null) {
+			return;
+		}
+		Node temp = this.parent;
+		
+		this.parent.valeur = this.valeur;
+		this.valeur = temp.valeur;
+		
 	}
 
 	public ArrayList<Node> delete() {
@@ -90,6 +98,23 @@ public class Node {
 
 	public Node findValue(int valeur) {
 		// A completer
+		if (this.getVal() == valeur) {
+			return this;
+		}
+		if (this.getVal() > valeur) {
+			for (int i=0; i < this.enfants.size();i++) {
+				if (this.enfants.get(i).getVal()== valeur) {
+					return this.enfants.get(i);
+				}
+				else {
+					if (this.enfants.get(i).getVal()>valeur) {
+						Node nodeFound = this.enfants.get(i).findValue(valeur);
+						if (nodeFound != null)
+							return nodeFound;
+					}
+				}
+			}
+		}
 		return null;
 	}
 
