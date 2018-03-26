@@ -84,16 +84,48 @@ public class Node {
 		if (this.parent == null) {
 			return;
 		}
-		Node temp = this.parent;
+		Node tempParent = this.parent;
+		ArrayList<Node> tempEnfants = tempParent.enfants;
 		
-		this.parent.valeur = this.valeur;
-		this.valeur = temp.valeur;
+		//Grand-parent
+		if(this.parent.parent != null) {
+			this.parent = this.parent.parent;
+			this.parent.removeEnfant(tempParent);
+			this.parent.addEnfant(this);
+		} else {
+			this.parent = null;
+		}
 		
+		//Parent
+		tempParent.removeEnfant(this);
+		tempParent.enfants = this.enfants;
+		tempParent.ordre++;
+		
+		//this
+		this.enfants = tempEnfants;
+		this.removeEnfant(this);
+		this.addEnfant(tempParent);
+		this.ordre--;
+		
+		tempParent.parent = this;
+		
+		for(Node enfant : this.enfants) {
+			enfant.parent = this;
+		}
+		for(Node enfant : tempParent.enfants) {
+			enfant.parent = tempParent;
+		}
 	}
 
 	public ArrayList<Node> delete() {
 		// A completer
-		return null;
+		while(this.parent != null) {
+			this.moveUp();
+		}
+		for(Node enfant : this.enfants) {
+			enfant.parent = null;
+		}
+		return this.enfants;
 	}
 
 	public Node findValue(int valeur) {
@@ -120,6 +152,11 @@ public class Node {
 
 	public ArrayList<Integer> getElementsSorted() {
 		// A completer
+		
+		ArrayList<Integer> tableauTrie = new ArrayList<Integer>();
+		
+		tableauTrie.add(this.valeur);
+		
 		return null;
 	}
 

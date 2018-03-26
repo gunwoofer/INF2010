@@ -22,20 +22,20 @@ public class main {
 		try {
 
 			a = a.fusion(b); // 3-4
-			a.print();
+			//a.print();
 			// Decommenter pour tester l'emission d'exception
 			// a = a.fusion(c); // 3-4-5 -> EXCEPTION (ordres differents)
 			c = c.fusion(f); // 5-9
-			c.print();
+			//c.print();
 			c = c.fusion(a); // 3-4-5-9
-			c.print();
+			//c.print();
 
 			g = g.fusion(h); // 12-13
-			g.print();
+			//g.print();
 			d = d.fusion(e); // 7-8
-			d.print();
+			//d.print();
 			d = d.fusion(g); // 7-8-12-13
-			d.print();
+			//d.print();
 			c = c.fusion(d); // 3-4-5-9-7-8-12-13
 			c.print();
 
@@ -47,9 +47,6 @@ public class main {
 		}
 
 		
-		// TEST DE PRINT
-
-		c.print();
 
 		System.out.println();
 
@@ -71,7 +68,7 @@ public class main {
 
 		System.out.println();
 
-		/*
+		
 		// TEST DE DELETE
 		System.out.println("\nTEST DE NODE.DELETE()\n");
 
@@ -83,6 +80,7 @@ public class main {
 			System.out.print("\n\n");
 		}
 
+		/*
 		// TEST DE GET SORTED ELEMENTS
 		System.out.println("TEST DU SORT\n");
 
