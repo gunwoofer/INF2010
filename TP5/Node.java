@@ -152,12 +152,34 @@ public class Node {
 
 	public ArrayList<Integer> getElementsSorted() {
 		// A completer
-		
 		ArrayList<Integer> tableauTrie = new ArrayList<Integer>();
-		
+		ArrayList<Node> tableauNodeRestant = this.enfants;
 		tableauTrie.add(this.valeur);
 		
-		return null;
+		while(tableauNodeRestant.size() != 0) {
+			Node nodeMax = nodeMax(tableauNodeRestant);
+			tableauTrie.add(nodeMax.valeur);
+			tableauNodeRestant.remove(nodeMax);
+			if(nodeMax.enfants != null) {
+				tableauNodeRestant.addAll(nodeMax.enfants);
+			}
+		}
+		
+		
+		return tableauTrie;
+	}
+	
+	public Node nodeMax(ArrayList<Node> list) {
+		if(list.size() == 0) {
+			return null;
+		}
+		Node max = list.get(0);
+		for(Node node : list) {
+			if(node.valeur > max.valeur) {
+				max = node;
+			}
+		}
+		return max;
 	}
 
 	public void print() {
