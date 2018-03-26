@@ -89,7 +89,7 @@ public class main {
 			System.out.println(valeur + " ");
 		}
 
-		/*
+		
 		// TEST DU MONCEAU : INSERT
 		System.out.println("\nTEST DE MONCEAU.INSERT(), FUSION() ET PRINT()\n");
 
@@ -111,6 +111,7 @@ public class main {
 		// Affichage du monceau
 		monceau.print();
 
+		/*
 		// TEST DU MONCEAU : DELETE
 		System.out.println("\nTEST DE MONCEAU.DELETE()\n");
 
