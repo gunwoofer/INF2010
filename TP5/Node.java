@@ -99,13 +99,14 @@ public class Node {
 		//Parent
 		tempParent.removeEnfant(this);
 		tempParent.enfants = this.enfants;
-		tempParent.ordre++;
+		int tempOrdre = tempParent.ordre;
+		tempParent.ordre = this.ordre;
 		
 		//this
 		this.enfants = tempEnfants;
 		this.removeEnfant(this);
 		this.addEnfant(tempParent);
-		this.ordre--;
+		this.ordre = tempOrdre;
 		
 		tempParent.parent = this;
 		
@@ -187,7 +188,7 @@ public class Node {
     }
 
     private void print(String prefix, boolean isTail) {
-        System.out.println(prefix + (isTail ? "'-- " : "|-- ") + valeur);
+        System.out.println(prefix + (isTail ? "'-- " : "|-- ") + valeur + "(" + ordre + ")");
         for (int i = 0; i < enfants.size() - 1; i++) {
             enfants.get(i).print(prefix + (isTail ? "    " : "|   "), false);
         }

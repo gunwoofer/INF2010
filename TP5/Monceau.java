@@ -9,6 +9,7 @@ public class Monceau {
 
 	public void fusion(Monceau autre) {
 		// A completer
+		
 	}
 
 	public void insert(int val) {
