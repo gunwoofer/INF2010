@@ -62,7 +62,7 @@ public class Node {
 		}
 		else {
 			if (this.parent == null && autre.parent == null) {
-				if(this.valeur > autre.valeur) {
+				if(this.valeur >= autre.valeur) {
 					this.addEnfant(autre);
 					autre.parent = this;
 					this.ordre++;

@@ -96,22 +96,29 @@ public class main {
 		Monceau monceau = new Monceau();
 		monceau.insert(9);
 		monceau.insert(5);
+		
 		monceau.insert(17);
+		
 		monceau.insert(21);
+		
 		monceau.insert(99);
 		monceau.insert(12);
 		monceau.insert(77);
 		monceau.insert(12);
 		monceau.insert(23);
+		
 		monceau.insert(23);
+		
 		monceau.insert(24);
 		monceau.insert(33);
+		
 		monceau.insert(53);
+	
 
 		// Affichage du monceau
 		monceau.print();
 
-		/*
+		
 		// TEST DU MONCEAU : DELETE
 		System.out.println("\nTEST DE MONCEAU.DELETE()\n");
 
@@ -120,7 +127,7 @@ public class main {
 
 		System.out.println("Resultat :");
 		monceau.print();
-		*/
+		
 
 	}
 }
