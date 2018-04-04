@@ -11,6 +11,11 @@ public class Monceau {
 		arbres = new ArrayList<Node>();
 		arbres.add(racine);
 	}
+	
+	public Monceau(ArrayList<Node> arbres) {
+		this.arbres = new ArrayList<Node>();
+		this.arbres = arbres;
+	}
 
 	public void fusion(Monceau autre) throws DifferentOrderTrees {
 		// A completer
@@ -91,7 +96,23 @@ public class Monceau {
 
 	public boolean delete(int val) {
 		// A completer
-		return false;
+		boolean deleted = false;
+		try {
+			for(Node arbre : this.arbres) {
+				Node nodeDelete = arbre.findValue(val);
+				while(nodeDelete != null) {
+					deleted = true;
+					Monceau resteDelete = new Monceau(nodeDelete.delete());
+					this.arbres.remove(arbre);
+					this.fusion(resteDelete);
+					nodeDelete = arbre.findValue(val);
+				}
+			}
+		}
+		catch(DifferentOrderTrees erreur) {
+			System.out.println(erreur);
+		}
+		return deleted;
 	}
 
 	public void print() {

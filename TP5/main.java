@@ -22,31 +22,24 @@ public class main {
 		try {
 
 			a = a.fusion(b); // 3-4
-			//a.print();
 			// Decommenter pour tester l'emission d'exception
 			// a = a.fusion(c); // 3-4-5 -> EXCEPTION (ordres differents)
 			c = c.fusion(f); // 5-9
-			//c.print();
 			c = c.fusion(a); // 3-4-5-9
-			//c.print();
 
 			g = g.fusion(h); // 12-13
-			//g.print();
 			d = d.fusion(e); // 7-8
-			//d.print();
 			d = d.fusion(g); // 7-8-12-13
-			//d.print();
 			c = c.fusion(d); // 3-4-5-9-7-8-12-13
-			c.print();
 
-			
-			
 		} catch (DifferentOrderTrees exception) {
 			System.out.println(exception);
 			return;
 		}
 
-		
+		// TEST DE PRINT
+
+		c.print();
 
 		System.out.println();
 
@@ -68,7 +61,6 @@ public class main {
 
 		System.out.println();
 
-		
 		// TEST DE DELETE
 		System.out.println("\nTEST DE NODE.DELETE()\n");
 
@@ -80,7 +72,6 @@ public class main {
 			System.out.print("\n\n");
 		}
 
-		
 		// TEST DE GET SORTED ELEMENTS
 		System.out.println("TEST DU SORT\n");
 
@@ -89,36 +80,27 @@ public class main {
 			System.out.println(valeur + " ");
 		}
 
-		
 		// TEST DU MONCEAU : INSERT
 		System.out.println("\nTEST DE MONCEAU.INSERT(), FUSION() ET PRINT()\n");
 
 		Monceau monceau = new Monceau();
 		monceau.insert(9);
 		monceau.insert(5);
-		
 		monceau.insert(17);
-		
 		monceau.insert(21);
-		
 		monceau.insert(99);
 		monceau.insert(12);
 		monceau.insert(77);
 		monceau.insert(12);
 		monceau.insert(23);
-		
 		monceau.insert(23);
-		
 		monceau.insert(24);
 		monceau.insert(33);
-		
 		monceau.insert(53);
-	
 
 		// Affichage du monceau
 		monceau.print();
 
-		
 		// TEST DU MONCEAU : DELETE
 		System.out.println("\nTEST DE MONCEAU.DELETE()\n");
 
@@ -127,7 +109,6 @@ public class main {
 
 		System.out.println("Resultat :");
 		monceau.print();
-		
 
 	}
 }
