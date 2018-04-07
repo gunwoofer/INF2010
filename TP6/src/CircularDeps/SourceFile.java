@@ -24,23 +24,30 @@ public class SourceFile {
         this.dependencies.add(file);
     }
     
-    public boolean hasUnvisitedChildren() {
-    	boolean unvisited = false;
+    public boolean hasWhiteNeighboor() {
     	for (SourceFile child : this.getDependencies()) {
     		if (child.couleur.equals(Color.White)) {
-    			unvisited = true;
-    			break;
+    			return true;
     		}
     	}
-    	return unvisited;
+    	return false;
     }
     
-    public SourceFile peekUnvisitedChild() {
+    public SourceFile peekWhiteNeighboor() {
     	for (SourceFile child : this.getDependencies()) {
     		if (child.couleur.equals(Color.White)) {
     			return child;
     		}
     	}
     	return null;
+    }
+    
+    public boolean hasGrayNeighbour() {
+    	for (SourceFile child : this.getDependencies()) {
+    		if (child.couleur.equals(Color.Gray)) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 }

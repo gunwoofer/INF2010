@@ -21,13 +21,13 @@ public class CircularDependenciesMain
         System.out.println("test dependance indirecte : " + isIndirectCircularDepsCorrect);
         System.out.println("test pas de dependance  : " + isNoCircularDepsCorrect );
         
-        /*
+        
         if (isDirectCircularDepsCorrect
          && isIndirectCircularDepsCorrect
          && isNoCircularDepsCorrect) {
             System.out.println("Circular dependencies : Tous les tests passent!");
         }
-        */
+        
     }
 
     private static boolean testDirectCircularDependency()

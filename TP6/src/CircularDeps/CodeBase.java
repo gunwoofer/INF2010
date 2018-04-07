@@ -1,5 +1,4 @@
 package CircularDeps;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
 
@@ -53,37 +52,22 @@ public class CodeBase {
         parcour.push(file);
         
         while (!parcour.empty()) {
-        	if (file.hasUnvisitedChildren()) {
-        		SourceFile child = file.peekUnvisitedChild();
-        		if (child.couleur == Color.Gray) {
-        			return true;
-        		}
-        		child.couleur = Color.Gray;
-        		parcour.push(child);
-        		file = child;
+        	SourceFile child = parcour.lastElement();
+        	
+        	if (child.hasGrayNeighbour()) {
+        		return true;
+        	}
+        	else if (child.hasWhiteNeighboor()) {
+        		SourceFile whiteNeighboor = child.peekWhiteNeighboor();
+        		whiteNeighboor.couleur = Color.Gray;
+        		parcour.push(whiteNeighboor);
         	}
         	else {
-        		file.couleur = Color.Black;
+        		child.couleur = Color.Black;
         		parcour.pop();
-        		if(!parcour.empty()) {
-        			file = parcour.lastElement();
-        		}
         	}
-        	
         }
         
         return false;
     }
-    
-    private boolean allVisited() {
-    	for (SourceFile file : this.sourceFiles) {
-    		if (file.couleur != Color.Black)
-    			return false;
-    	}
-    	return true;
-    }
-    
-    
-    
-    
 }
